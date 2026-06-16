@@ -1,0 +1,4 @@
+interface:
+  display_name: "Note Single Lecture"
+  short_description: "Build organized notes for one lecture PDF."
+  default_prompt: "Use $note-single-lecture to create a mind map, prompt, and final Markdown notes for this lecture PDF, storing work files separately from final notes."
