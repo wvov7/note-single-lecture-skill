@@ -49,6 +49,7 @@ Create a complete hierarchical outline that covers all course content without me
 - Include diagram/screenshot meanings as nodes, not just text slides.
 - Include all examples, exercises, quizzes, past-paper questions, and answer slides as nodes when they are part of the course content.
 - For examples/exercises/questions, preserve any original answer from the lecture completely and verbatim enough for study use, especially numbered or bulleted sub-points. Do not shorten an original answer into a summary. Add a Chinese translation/explanation after the complete original answer.
+- When creating a supplemental reference answer because the lecture has no answer, write the supplemental answer in English first, then provide a complete Chinese translation that preserves the same points and structure. Do not use a shorter Chinese explanation in place of the translation.
 - If the lecture has no answer for an example/exercise/question, create a bilingual reference answer and label it as `补充参考答案（Supplemental Reference Answer）`.
 
 Save the mind map outline JSON in `note-single-lecture-work/<pdf-stem>/`, then render the outline to PNG in the same folder. Prefer the bundled script:
@@ -88,6 +89,7 @@ Create `note-single-lecture-work/<pdf-stem>/<pdf-stem>_笔记生成提示词.md`
 - Require diagram/screenshot explanations.
 - Require example/exercise/question handling for every course-content example, exercise, quiz, or past-paper question in the lecture: include the English prompt when useful, a Chinese translation/explanation, and an answer section.
 - If the PDF provides an answer, preserve the original English answer completely, including all numbered or bulleted sub-points, and then add a Chinese translation/explanation. Do not compress, paraphrase away, or replace an original answer with a shorter "strong answer" summary.
+- For supplemental reference answers, require a complete Chinese translation of the supplemental English answer, preserving all numbered/bulleted points and sub-points. Do not replace the Chinese translation with a shorter explanation or study note.
 - If no answer is provided, write a plausible reference answer in both English and Chinese and mark it as `补充参考答案（Supplemental Reference Answer）`.
 - Ignore non-course-content administrative information such as the opening lecturer name/affiliation and closing email/contact/forum/Q&A channel unless the user explicitly asks to include it.
 - Require highlight syntax for key points: `==注意：...==`.
@@ -129,6 +131,7 @@ Before final response:
 - Confirm key terms preserve English names.
 - Confirm concepts with source definitions preserve the full original English definition and include a Chinese translation/explanation.
 - Confirm all examples/exercises/questions have answer treatment: existing answers are complete and keep their original numbered/bulleted structure before translation; missing answers have bilingual supplemental reference answers.
+- Confirm supplemental reference answers include a complete Chinese translation matching the English answer's points and structure, not a shorter Chinese explanation.
 - Confirm administrative-only lecturer/contact/forum/Q&A-channel content is omitted unless explicitly requested.
 - Confirm non-code, non-source-quote explanatory lines are not pure English.
 - Confirm visual/sparse slides were covered by diagram/screenshot explanations.
