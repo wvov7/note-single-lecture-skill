@@ -1,6 +1,6 @@
 ---
 name: note-single-lecture
-description: "Create high-fidelity study notes for one lecture PDF/PPT using a generated mind map first. Store intermediate artifacts in note-single-lecture-work/<pdf-stem>/ and final notes in note-single-lecture/. Preserve original answers for examples/exercises completely, especially numbered or bulleted answer points."
+description: "Create high-fidelity study notes for one lecture PDF/PPT using a generated mind map first. Store intermediate artifacts in note-single-lecture-work/<pdf-stem>/ and final notes in note-single-lecture/. Preserve original answers and complete concept definitions in English, especially numbered or bulleted answer points, then add Chinese translations."
 ---
 
 # Note Single Lecture
@@ -44,6 +44,7 @@ Create a complete hierarchical outline that covers all course content without me
 - Root: lecture title.
 - First-level branches: major themes.
 - Lower-level branches: definitions, processes, comparisons, diagrams, workflows, examples, exercises, answer slides, practice requirements, exam points.
+- For concepts with explicit definitions in the lecture, preserve the complete original English definition before adding the Chinese translation/explanation. Do not replace a full source definition with a shorter paraphrase.
 - Include English for important terms in parentheses, e.g. `版本控制（Version Control）`.
 - Include diagram/screenshot meanings as nodes, not just text slides.
 - Include all examples, exercises, quizzes, past-paper questions, and answer slides as nodes when they are part of the course content.
@@ -82,6 +83,7 @@ Create `note-single-lecture-work/<pdf-stem>/<pdf-stem>_笔记生成提示词.md`
 - Name the source lecture file and generated mind map file.
 - Require theme-based Markdown headings, not slide-by-slide notes.
 - Require Chinese explanation; no pure-English explanatory prose outside preserved source quotations/code.
+- Require complete definition handling: when the lecture provides a concept definition, include the original English definition in full, then add a Chinese translation/explanation. Do not compress the source definition into a summary.
 - Require key terms and definitions as `中文（English）`.
 - Require diagram/screenshot explanations.
 - Require example/exercise/question handling for every course-content example, exercise, quiz, or past-paper question in the lecture: include the English prompt when useful, a Chinese translation/explanation, and an answer section.
@@ -125,6 +127,7 @@ Before final response:
 - Confirm final notes are not slide-by-slide: no `^## Slide ` headings.
 - Confirm Markdown code fences are balanced.
 - Confirm key terms preserve English names.
+- Confirm concepts with source definitions preserve the full original English definition and include a Chinese translation/explanation.
 - Confirm all examples/exercises/questions have answer treatment: existing answers are complete and keep their original numbered/bulleted structure before translation; missing answers have bilingual supplemental reference answers.
 - Confirm administrative-only lecturer/contact/forum/Q&A-channel content is omitted unless explicitly requested.
 - Confirm non-code, non-source-quote explanatory lines are not pure English.
