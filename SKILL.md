@@ -121,9 +121,10 @@ Create `note-single-lecture-work/<pdf-stem>/<pdf-stem>_笔记生成提示词.md`
 - Name the source lecture file and generated mind map file.
 - Require theme-based Markdown headings, not slide-by-slide notes.
 - Require Chinese explanation; no pure-English explanatory prose outside preserved source quotations/code.
-- Require every preserved English source quote, English bullet list, English numbered list, `Purpose`, example, answer, or visual text to use one of these compact bilingual quote structures.
+- Preserve high-density tables for definition summaries, measure summaries, concept comparisons, and review summaries. Do not expand table rows into repeated quote blocks. Tables may use columns such as `English Source`, `中文翻译`, and `复习意义`.
+- Use compact bilingual quote structures only for narrative source material outside tables: examples, `Purpose` text, long source answers, screenshot/visual text, and English bullet or numbered lists copied from the lecture.
 
-For ordinary sentence/paragraph source, use this A-style structure:
+For ordinary sentence/paragraph source outside tables, use this A-style structure:
 
 ```markdown
 > Complete original English text.  
@@ -132,7 +133,7 @@ For ordinary sentence/paragraph source, use this A-style structure:
 中文解释：解释该原文在课程中的含义。
 ```
 
-For English bullet or numbered lists, use this B-style structure with each original item immediately followed by its Chinese translation inside the same quote block:
+For English bullet or numbered lists outside tables, use this B-style structure with each original item immediately followed by its Chinese translation inside the same quote block:
 
 ```markdown
 > - login session IDs  
@@ -144,6 +145,7 @@ For English bullet or numbered lists, use this B-style structure with each origi
 ```
 
 - Do not create a separate `中文翻译：` paragraph for source quotes/lists unless the source is too complex for inline pairing. Prefer A-style and B-style blocks to reduce redundancy.
+- Do not use A-style/B-style blocks for compact definition tables or comparison tables; preserve those tables because they are easier to scan and compare.
 - For English source lists, preserve every English item and put its Chinese translation immediately below it in the same block, with the same number and order of items.
 - Require the final notes to use `translation_units.json` as the authoritative source for all source-translation-explanation blocks.
 - Require complete definition handling: when the lecture provides a concept definition, include the original English definition in full, then add a Chinese translation/explanation. Do not compress the source definition into a summary.
@@ -204,7 +206,8 @@ Before final response:
 - Confirm Markdown code fences are balanced.
 - Confirm key terms preserve English names.
 - Confirm concepts with source definitions preserve the full original English definition and include both a complete Chinese translation and a Chinese explanation.
-- Confirm preserved English quote/list blocks use compact A-style or B-style bilingual blocks, with Chinese translation inside the same quote/list block rather than in a separate `中文翻译：` paragraph.
+- Confirm definition summaries, measure summaries, and comparison summaries remain tables when a table is the most readable format.
+- Confirm preserved English quote/list blocks outside tables use compact A-style or B-style bilingual blocks, with Chinese translation inside the same quote/list block rather than in a separate `中文翻译：` paragraph.
 - Confirm all examples/exercises/questions have answer treatment: existing answers are complete and keep their original numbered/bulleted structure before translation; missing answers have bilingual supplemental reference answers.
 - Confirm supplemental reference answers include a complete Chinese translation matching the English answer's points and structure, not a shorter Chinese explanation.
 - Confirm administrative-only lecturer/contact/forum/Q&A-channel content is omitted unless explicitly requested.
