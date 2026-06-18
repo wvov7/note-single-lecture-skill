@@ -86,6 +86,7 @@ Readability override for all note generation:
 - Use ordered lists for steps, procedures, sequences, and methods.
 - Use Markdown tables for necessary comparisons when the lecture contains similar concepts, media properties, workflows, design tradeoffs, criteria, examples with contrasting outcomes, or good/bad design cases. Insert each comparison table immediately after the concept, diagram, workflow, or example it clarifies; do not collect comparison tables into a separate comparison-only section unless the lecture itself is organized that way. Use unordered or ordered lists only for lightweight comparisons where a table would reduce readability.
 - Use quote blocks only for course-content examples, exercises, questions, existing source answers, and supplemental reference answers. Do not use quote blocks for ordinary definitions, explanations, design considerations, comparisons, feature lists, or short source/translation pairs.
+- Inside quote blocks, whenever English source text is preserved for an example, exercise, question, evaluation comment, correction, existing answer, or supplemental answer, put the Chinese translation immediately after the English text in the same quoted line/paragraph, not as a separate quoted line. Example: `> 示例陈述：English sentence. 中文翻译：中文句子。`
 - For numbered bilingual examples/exercises/questions/answers inside quote blocks, do not put Markdown ordered-list markers on each quoted line. Prefer a quoted label such as `Point 1:` / `第 1 点：`, or keep one answer point together as one quoted paragraph, so renderers cannot renumber English and Chinese lines incorrectly.
 - Do not put bilingual line-by-line lists inside quote blocks. If a complete source definition or descriptive English sentence must keep English outside examples/exercises/questions/answers, keep the English and direct Chinese translation in the same normal paragraph or list item without source-language boilerplate labels. Put the Chinese translation immediately after the English sentence, with no blank line, no line break, and no extra space used as a visual separator.
 - Reserve code blocks for actual code or literal formatted source content.
@@ -106,6 +107,7 @@ Create `note-single-lecture-work/<pdf-stem>/<pdf-stem>_笔记生成提示词.md`
 - Require diagram/screenshot explanations.
 - Require example/exercise/question handling for every course-content example, exercise, quiz, or past-paper question in the lecture: include the English prompt when useful, a Chinese translation/explanation, and an answer section.
 - Require examples, exercises, quizzes, questions, their existing source answers, and supplemental reference answers to use quote blocks for the preserved prompt/answer content.
+- Require quote blocks to keep English source text and its Chinese translation in the same quoted line/paragraph for examples, exercises, questions, evaluation comments, corrections, existing answers, and supplemental answers. Do not put a standalone `> 中文翻译：...` line after an English quoted line; instead write `> Label: English text. 中文翻译：中文文本。`
 - Require all non-example/non-exercise/non-question content to avoid quote blocks and use ordinary paragraphs plus unordered or ordered lists according to the content structure.
 - Require examples, exercises, quizzes, questions, and answer slides to appear immediately after the corresponding concept/process/diagram/workflow they illustrate or test. Do not create a separate examples/questions/exercises section unless the whole lecture is itself organized as a question bank.
 - If the PDF provides an answer, preserve the source-language answer completely, including all numbered or bulleted sub-points, and then add a Chinese translation/explanation. Do not compress, paraphrase away, or replace a source answer with a shorter "strong answer" summary.
@@ -154,11 +156,12 @@ Do not repeat the same idea in a Chinese sentence and then immediately repeat it
 
 Use quote blocks only for examples, exercises, questions, existing answers, and supplemental reference answers. Keep definitions, explanations, design considerations, comparisons, and short source/translation pairs as ordinary paragraphs, unordered lists, or ordered lists. When an English descriptive sentence is preserved with a direct Chinese translation, keep the pair in one paragraph/list item and join the translation directly after the English sentence without a blank line, line break, or boilerplate label.
 
+Inside quote blocks, keep each English source item and its Chinese translation in the same quoted paragraph. Use formats like `> Question: English question. 问题：中文翻译。` or `> 示例陈述：English statement. 中文翻译：中文翻译。`; do not place the translation on a separate quoted line unless the source itself is a multi-point answer and each point remains English+Chinese in one point paragraph.
+
 For bilingual quoted answer content, keep each answer point together and avoid Markdown ordered-list markers inside the quote block:
 
 ```markdown
-> Point 1: Complete English answer point.
-> 第 1 点：完整中文翻译。
+> Point 1: Complete English answer point. 第 1 点：完整中文翻译。
 ```
 
 ## Quality Checks
@@ -183,6 +186,7 @@ Before final response:
 - Confirm ordinary definitions, explanations, design considerations, comparisons, feature lists, and short source/translation pairs are not placed in quote blocks.
 - Confirm quote blocks do not contain Markdown ordered-list markers such as `> 1.` or `> 2.`.
 - Confirm bilingual numbered examples/exercises/questions/answers keep English and Chinese for the same point together rather than as separate numbered items.
+- Confirm quote blocks keep English source text and its Chinese translation in the same quoted paragraph, with no standalone `> 中文翻译：...` line following an English source line.
 - Confirm non-question bilingual line-by-line content is not placed inside quote blocks when a normal list or paragraph pair would render more reliably.
 - Confirm there is no visible source/translation boilerplate label in the final notes, including labels like `英文原文`, `课件定义`, `Source`, or `Translation`.
 - Confirm preserved English descriptive sentences and their direct Chinese translations are in the same paragraph or list item, with the Chinese translation immediately following the English sentence and no blank line or line break between them.
